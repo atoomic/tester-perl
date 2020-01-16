@@ -4,7 +4,7 @@ name: Publish to Docker
 on:
   push:
     branches:
-      - 'master'
+      - master
   schedule:
     - cron: '10 6 * * *'
 
@@ -39,4 +39,4 @@ jobs:
         password: ${{ secrets.DOCKER_GITHUB_TOKEN }}
         dockerfile: Dockerfile
         buildargs: BASE=${{ matrix.perl-version }}
-        tags: "v${{ matrix.perl-version }}"
+        tags: "v${{ matrix.perl-version }}, ${{ matrix.perl-version }}"
